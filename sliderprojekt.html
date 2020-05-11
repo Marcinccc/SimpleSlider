@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+    <img name="slide" width="400" height="200" />
+
+    <script>
+var i = 0; 			// Start Point
+var images = [];	// Images Array
+var time = 3000;	// Time Between Switch
+       // Image List
+images[0] = "photo1.jpg";
+images[1] = "photo2.jpg";
+images[2] = "photo3.jpg";
+images[3] = "photo2.jpg";
+
+// Change Image
+function changeImg(){
+	document.slide.src = images[i];
+
+	// Check If Index Is Under Max
+	if(i < images.length - 1){
+	  // Add 1 to Index
+	  i++; 
+	} else { 
+		// Reset Back To O
+		i = 0;
+	}
+
+	// Run function every x seconds
+	setTimeout("changeImg()", time);
+}
+
+// Run function when page loads
+window.onload=changeImg;
+    </script>
+</body>
+</html>
